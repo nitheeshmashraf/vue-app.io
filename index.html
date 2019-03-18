@@ -1,51 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.rawgit.com/jgthms/minireset.css/master/minireset.css">
+		<link rel="stylesheet" href="css/debug.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700,900">
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+		<style>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <!-- development version, includes helpful console warnings -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <!-- production version, optimized for size and speed -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+/* resets */
+* { color: inherit; }
+input { font: inherit; border: unset; background: unset; }
+input:focus { outline: unset; }
 
-    <style>
-        html,
-        body {
-            margin: 5px;
-            padding: 0;
-        }
-    </style>
+:root {
+	font: 1rem/1.175 "BlinkMacSystemFont", -apple-system, "Roboto", sans-seri;
+}
 
-</head>
+#app {
+	display: flex;
+	flex-direction: column; justify-content: center; align-items: center;
+	width: 100vw; height: 100vh;
+	font-weight: 900; font-size: 8rem;
+	color: hsl(0, 0%, 100%);
+	background: hsl(240, 100%, 67%);
+}
 
-<body>
-    <div id="app">
-        <ol>
-            <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
-            </todo-item>
-        </ol>
-    </div>
-    <script>
+input { text-align: center; }
 
-        Vue.component('todo-item', {
-            props: ['todo'],
-            template: '<li>{{ todo.text }}</li>'
-        })
+img {
+	width: 8rem; height: 8rem;
+	vertical-align: calc(-0.12109375em);
+}
 
-        var app = new Vue({
-            el: '#app',
-            data: {
-                groceryList: [
-                    { id: 0, text: 'Vegetables' },
-                    { id: 1, text: 'Cheese' },
-                    { id: 2, text: 'Whatever else humans are supposed to eat' }
-                ]
-            }
-        })
-    </script>
-</body>
+		</style>
+	</head>
+	<body>
 
+		<div id="app">
+			<p>hello, world!</p>
+		</div>
+
+		<script>
+
+"use strict"
+
+// emojify returns the corresponding emoji image
+function emojify(name) {
+	var out = `<img src="emojis/` + name + `.png">`
+	return out
+}
+
+var app = new Vue({
+	el: "#app"
+})
+
+		</script>
+
+	</body>
 </html>
